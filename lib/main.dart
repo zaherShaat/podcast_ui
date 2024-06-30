@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pod_mood/components/auth_form_field.dart';
+import 'package:pod_mood/components/main_btn.dart';
+import 'package:pod_mood/components/pod_box.dart';
+import 'package:pod_mood/configs/SizeConfig.dart';
+import 'package:pod_mood/configs/themes.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,13 +13,24 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    SizeConfig sizeConfig = SizeConfig();
+    sizeConfig.init(context);
+    return MaterialApp(
+      theme: theTheme,
       home: Scaffold(
-        body: Center(
-          child: AuthFormField(
-            icon: Icons.email_rounded,
-            hint: "hint",
+        appBar: AppBar(
+          toolbarHeight: 120,
+          title: MainBtn(
+            onPressed: () {},
+            label: "iugihgg",
+            txtColor: Colors.black,
+            iconData: Icons.g_mobiledata,
+            backColor: Colors.white,
+            bold: true,
           ),
+        ),
+        body: Center(
+          child: PodBox(),
         ),
       ),
     );

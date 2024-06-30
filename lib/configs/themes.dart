@@ -79,6 +79,36 @@ final theTheme = ThemeData(
     padding: const EdgeInsets.symmetric(vertical: 18),
     // height: 48,
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      alignment: Alignment.center,
+      elevation: const MaterialStatePropertyAll(5),
+      iconSize: const MaterialStatePropertyAll(18),
+      padding: const MaterialStatePropertyAll(
+        EdgeInsets.symmetric(
+          vertical: 18,
+          horizontal: 8,
+        ),
+      ),
+      shape: MaterialStatePropertyAll(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+      ),
+      enableFeedback: true,
+      shadowColor:
+          const MaterialStatePropertyAll(Color.fromRGBO(11, 15, 50, 1)),
+      surfaceTintColor: MaterialStatePropertyAll(Colors.white.withOpacity(0.8)),
+      textStyle: const MaterialStatePropertyAll(
+        TextStyle(
+          color: Colors.white,
+          fontFamily: circularStdFamily,
+          fontSize: 12,
+          fontWeight: FontWeight.normal,
+        ),
+      ),
+    ),
+  ),
   radioTheme: const RadioThemeData(
     fillColor: MaterialStatePropertyAll(
       Color.fromRGBO(43, 42, 58, 1),
