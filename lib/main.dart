@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pod_mood/components/main_btn.dart';
-import 'package:pod_mood/components/pod_box.dart';
+import 'package:pod_mood/components/event_widgets.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/themes.dart';
 
@@ -18,19 +17,14 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: theTheme,
       home: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 120,
-          title: MainBtn(
-            onPressed: () {},
-            label: "iugihgg",
-            txtColor: Colors.black,
-            iconData: Icons.g_mobiledata,
-            backColor: Colors.white,
-            bold: true,
-          ),
-        ),
+        // appBar: AppBar(
+        //   toolbarHeight: 120,
+        //   title: PodCard(
+        //     onPressed: () {},
+        //   ),
+        // ),
         body: Center(
-          child: PodBox(),
+          child: EventStackedBox(),
         ),
       ),
     );

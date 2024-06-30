@@ -47,8 +47,12 @@ class PodImg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height ?? 124,
-      width: width ?? 124,
+      height: height != null
+          ? getProportionateScreenHeight(height!)
+          : getProportionateScreenHeight(124),
+      width: width != null
+          ? getProportionateScreenWidth(width!)
+          : getProportionateScreenWidth(124),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         image: const DecorationImage(
@@ -63,21 +67,55 @@ class PodImg extends StatelessWidget {
 }
 
 class PodCard extends StatelessWidget {
-  const PodCard({super.key});
-
+  const PodCard({super.key, required this.onPressed});
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Row(
-        children: [
-          PodImg(
-            height: 50,
-            width: 50,
-          ),
-          SizedBox(
-            width: getProportionateScreenWidth(13),
-          ),
-        ],
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 13),
+        child: Row(
+          children: [
+            const PodImg(
+              height: 48,
+              width: 48,
+            ),
+            SizedBox(
+              width: getProportionateScreenWidth(13),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Row(
+                  children: [
+                    Text(
+                      'Expeditiously with tip "T.I." Harris',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(3),
+                ),
+                const Row(
+                  children: [
+                    Text("Greenwood Online Banking For Us By Us"),
+                  ],
+                ),
+              ],
+            ),
+            const Spacer(),
+            IconButton(
+              onPressed: onPressed,
+              icon: const Icon(Icons.more_horiz),
+            ),
+          ],
+        ),
       ),
     );
   }

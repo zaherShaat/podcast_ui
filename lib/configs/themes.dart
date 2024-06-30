@@ -3,10 +3,18 @@ import 'package:pod_mood/configs/constants.dart';
 
 final theTheme = ThemeData(
   scaffoldBackgroundColor: const Color.fromRGBO(45, 44, 60, 1),
+  iconButtonTheme: const IconButtonThemeData(
+    style: ButtonStyle(
+        padding: MaterialStatePropertyAll(EdgeInsets.zero),
+        elevation: MaterialStatePropertyAll(8),
+        iconSize: MaterialStatePropertyAll(18),
+      ),
+  ),
   primaryColor: const Color.fromRGBO(24, 26, 38, 1),
   cardColor: const Color.fromRGBO(11, 11, 21, 1),
   cardTheme: CardTheme(
-    elevation: 0,
+    elevation: 10,
+    margin: EdgeInsets.zero,
     color: const Color.fromRGBO(11, 11, 21, 1),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
