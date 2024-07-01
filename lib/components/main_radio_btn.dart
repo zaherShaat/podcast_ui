@@ -11,22 +11,10 @@ class MainRadioBtn extends StatefulWidget {
 }
 
 class _MainRadioBtnState extends State<MainRadioBtn> {
-  bool _groupVal = false;
+  // bool _groupVal = false;
   @override
   Widget build(BuildContext context) {
     return Radio<bool>.adaptive(
-      // activeColor: Colors.red,
-      // overlayColor: MaterialStateProperty.resolveWith<Color>(
-      //   (states) => states
-      //       .map(
-      //         (MaterialState e) => e == MaterialState.focused
-      //             ? Colors.deepOrange
-      //             : e == MaterialState.dragged
-      //                 ? Colors.white
-      //                 : Colors.amber,
-      //       )
-      //       .first,
-      // ),
       value: true,
       groupValue: widget.gettenVal,
       onChanged: widget.onChanged,

@@ -43,6 +43,9 @@ final theTheme = ThemeData(
       fontWeight: FontWeight.normal,
       // height: 9,
     ),
+    unselectedItemColor: iconColor, 
+    selectedItemColor: binky,
+    
     unselectedLabelStyle: TextStyle(
       fontFamily: circularStdFamily,
       color: iconColor,

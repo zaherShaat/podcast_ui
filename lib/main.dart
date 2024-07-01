@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pod_mood/components/favourite_box.dart';
 import 'package:pod_mood/components/main_switch_btn.dart';
+import 'package:pod_mood/components/navigation_element.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/themes.dart';
 
@@ -17,7 +18,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   bool _gettenValue = false;
-
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     SizeConfig sizeConfig = SizeConfig();
@@ -25,6 +26,14 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp(
       theme: theTheme,
       home: Scaffold(
+        bottomNavigationBar: MainBottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (int index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+        ),
         // appBar: AppBar(
         //   toolbarHeight: 120,
         //   title: PodCard(
