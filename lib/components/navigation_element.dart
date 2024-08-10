@@ -21,12 +21,14 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
       items: [
         BottomNavigationBarItem(
           icon: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Visibility(
                 visible: widget.currentIndex == 0,
                 child: Container(
                   height: getProportionateScreenHeight(5),
                   width: getProportionateScreenWidth(24),
+                  margin: EdgeInsets.zero,
                   decoration: const BoxDecoration(
                     color: binky,
                     borderRadius: BorderRadius.only(
@@ -36,6 +38,9 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
                   ),
                 ),
               ),
+              const Icon(
+                Icons.home_max,
+              )
             ],
           ),
           // icon: Icon(
@@ -62,7 +67,7 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
                   ),
                 ),
               ),
-              Icon(
+              const Icon(
                 Icons.home_max,
               )
             ],

@@ -10,4 +10,4 @@ const Color cardColor = Color.fromRGBO(11, 11, 21, 1);
 const Color scaffoldColor = Color.fromRGBO(45, 44, 60, 1);
 const Color iconColor = Color.fromRGBO(92, 94, 111, 1);
 const Color mainSwichColor = Color.fromRGBO(43, 42, 58, 1);
-
+const Color deluge  = Color.fromRGBO(116, 119, 160, 1);

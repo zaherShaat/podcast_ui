@@ -1,47 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:pod_mood/configs/constants.dart';
 
-class AuthFormField extends StatelessWidget {
-  const AuthFormField({
-    super.key,
-    required this.icon,
-    this.enabled = true,
-    this.label,
-    this.hint, this.cornerRadius,
-  });
-  final IconData icon;
+class SearchFormField extends StatefulWidget {
+  const SearchFormField({super.key, required this.enabled});
   final bool enabled;
-  final String? label, hint;
-  final double? cornerRadius;
+
+  @override
+  State<SearchFormField> createState() => _SearchFormFieldState();
+}
+
+class _SearchFormFieldState extends State<SearchFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        prefixIcon: Icon(icon),
+        prefixIcon: const Icon(
+          Icons.search,
+          color: deluge,
+        ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(cornerRadius?? 6),
+          borderSide: BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(6),
         ),
         contentPadding: const EdgeInsets.all(18),
         filled: true,
-        enabled: enabled,
+        enabled: widget.enabled,
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(cornerRadius?? 6),
+          borderSide: BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(24),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(cornerRadius?? 6),
+          // borderSide: BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(24),
           borderSide: const BorderSide(
             color: Colors.red,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(cornerRadius?? 6),
+          // borderSide: BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(24),
           borderSide: const BorderSide(
             color: Colors.transparent,
           ),
         ),
         fillColor: const Color.fromRGBO(29, 25, 44, 1),
-        hintText: hint,
-        labelText: label,
+        hintText: "Search here...",
+        // labelText: "Search",
         hintStyle: const TextStyle(
           color: deluge,
           fontFamily: circularStdFamily,

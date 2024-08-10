@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pod_mood/components/favourite_box.dart';
 import 'package:pod_mood/components/main_switch_btn.dart';
 import 'package:pod_mood/components/navigation_element.dart';
+import 'package:pod_mood/components/search_form_field.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/themes.dart';
 
@@ -55,6 +56,10 @@ class _MainAppState extends State<MainApp> {
                   });
                 },
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SearchFormField(enabled: true),
             ),
           ],
         ),
