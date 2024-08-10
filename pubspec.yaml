@@ -8,6 +8,8 @@ dependencies:
     flutter:
         sdk: flutter
     provider: ^6.1.2
+    flutter_svg: ^2.0.10+1
+    carousel_slider: ^5.0.0
 
 dev_dependencies:
     flutter_test:

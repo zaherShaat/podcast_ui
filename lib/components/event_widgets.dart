@@ -3,6 +3,8 @@ import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
 
 class EventStackedBox extends StatelessWidget {
+  const EventStackedBox({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -24,7 +26,7 @@ class EventStackedBox extends StatelessWidget {
           width: getProportionateScreenWidth(181),
           height: getProportionateScreenHeight(133),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderRadius: const BorderRadius.all(Radius.circular(12)),
             color: Colors.black.withOpacity(0.4),
           ),
           padding: const EdgeInsets.only(

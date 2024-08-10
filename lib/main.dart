@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pod_mood/components/favourite_box.dart';
-import 'package:pod_mood/components/main_switch_btn.dart';
-import 'package:pod_mood/components/navigation_element.dart';
-import 'package:pod_mood/components/search_form_field.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/themes.dart';
+import 'package:pod_mood/views/navigation_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -26,44 +23,7 @@ class _MainAppState extends State<MainApp> {
     sizeConfig.init(context);
     return MaterialApp(
       theme: theTheme,
-      home: Scaffold(
-        bottomNavigationBar: MainBottomNavigationBar(
-          currentIndex: currentIndex,
-          onTap: (int index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-        ),
-        // appBar: AppBar(
-        //   toolbarHeight: 120,
-        //   title: PodCard(
-        //     onPressed: () {},
-        //   ),
-        // ),
-        body: Column(
-          children: [
-            FavouriteBox(
-              onFavPressed: () {},
-            ),
-            // Spacer(),
-            Card(
-              child: MainSwitchBtn(
-                gettenVal: _gettenValue,
-                onChanged: (value) {
-                  setState(() {
-                    _gettenValue = !_gettenValue;
-                  });
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SearchFormField(enabled: true),
-            ),
-          ],
-        ),
-      ),
+      home: const NavigationPage(),
     );
   }
 }

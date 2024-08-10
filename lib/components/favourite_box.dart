@@ -46,7 +46,7 @@ class FavouriteBox extends StatelessWidget {
 }
 
 class _FavouriteHeart extends StatefulWidget {
-  const _FavouriteHeart({super.key, required this.onPressed});
+  const _FavouriteHeart({required this.onPressed});
   final void Function() onPressed;
   @override
   State<_FavouriteHeart> createState() => __FavouriteHeartState();

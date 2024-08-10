@@ -19,14 +19,14 @@ class _SearchFormFieldState extends State<SearchFormField> {
           color: deluge,
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.transparent),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(6),
         ),
         contentPadding: const EdgeInsets.all(18),
         filled: true,
         enabled: widget.enabled,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.transparent),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(24),
         ),
         errorBorder: OutlineInputBorder(
