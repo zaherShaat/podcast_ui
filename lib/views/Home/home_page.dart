@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:pod_mood/components/pod_box.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
-import 'package:pod_mood/views/Home/components/dot_containers.dart';
+import 'package:pod_mood/views/Home/components/pop_pods_image.dart';
+import 'package:pod_mood/views/Home/components/slider_image.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -18,44 +20,100 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: black_Russian,
+      backgroundColor: blackRussian,
       body: Stack(
-        fit: StackFit.passthrough,
+        fit: StackFit.expand,
+        // clipBehavior: Clip.antiAlias,
         children: [
           SliderImg(
             carouselController: _carouselController,
             onPageChanged: (index, reason) {
-              setState(() {
-                currentIndex = index;
-              });
+              setState(
+                () {
+                  currentIndex = index;
+                },
+              );
             },
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 19, vertical: 0),
-            child: ListView(
-              // shrinkWrap: false,
-              children: [
-                const SizedBox(
-                  height: kToolbarHeight,
-                ),
-                DotsContainers(
-                  currentIndex: currentIndex,
-                ),
-                SizedBox(
-                  height: getProportionateScreenHeight(96),
-                ),
-                const Row(
-                  children: [
-                    Text(
-                      "Popular Broadcast",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+          PositionedDirectional(
+            top: getScreenHeight(3),
+            bottom: 0,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const TitleTxt(
+                    title: "Popular Broadcast",
+                  ),
+                  SizedBox(
+                    height: getProportionateScreenHeight(12),
+                  ),
+                  SizedBox(
+                    height: getProportionateScreenHeight(161),
+                    width: getScreenWidth(1),
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        SizedBox(
+                          width: getProportionateScreenWidth(19),
+                        ),
+                        const PopPodsImg(),
+                        SizedBox(
+                          width: getProportionateScreenWidth(15),
+                        ),
+                        const PopPodsImg(),
+                        SizedBox(
+                          width: getProportionateScreenWidth(15),
+                        ),
+                        const PopPodsImg(),
+                        SizedBox(
+                          width: getProportionateScreenWidth(15),
+                        ),
+                        const PopPodsImg(),
+                        SizedBox(
+                          width: getProportionateScreenWidth(15),
+                        ),
+                        const PopPodsImg(),
+                        SizedBox(
+                          width: getProportionateScreenWidth(15),
+                        ),
+                        const PopPodsImg(),
+                        SizedBox(
+                          width: getProportionateScreenWidth(15),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: getProportionateScreenHeight(20),
+                  ),
+                  const TitleTxt(
+                    title: "Similar Broadcast",
+                  ),
+                  SizedBox(
+                    height: getProportionateScreenHeight(12),
+                  ),
+                  SizedBox(
+                    width: getScreenWidth(1),
+                    child: Column(
+                      children: List.generate(
+                        4,
+                        (index) => Padding(
+                          padding: EdgeInsets.only(
+                            bottom: getProportionateScreenHeight(9),
+                            left: getProportionateScreenWidth(19),
+                            right: getProportionateScreenWidth(19),
+                          ),
+                          child: PodCard(
+                            onPressed: () {},
+                            assetName: podCardImg,
+                          ),
+                        ),
                       ),
-                    )
-                  ],
-                )
-              ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -64,89 +122,22 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class SliderImg extends StatefulWidget {
-  const SliderImg(
-      {super.key,
-      required this.carouselController,
-      required this.onPageChanged});
-  final CarouselSliderController carouselController;
-  final void Function(int, CarouselPageChangedReason) onPageChanged;
-  @override
-  State<SliderImg> createState() => _SliderImgState();
-}
-
-class _SliderImgState extends State<SliderImg> {
-  int currentIndex = 0;
-
+class TitleTxt extends StatelessWidget {
+  const TitleTxt({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      // fit: StackFit.expand,
-
-      // alignment: AlignmentDirectional.topCenter,
+    return Row(
       children: [
-        CarouselSlider.builder(
-          itemCount: 4,
-          itemBuilder: (context, index, realIndex) {
-            return const GirlSliderImg();
-          },
-          options: CarouselOptions(
-            onPageChanged: widget.onPageChanged,
-            aspectRatio: 1,
-            viewportFraction: 1,
+        SizedBox(
+          width: getProportionateScreenWidth(19),
+        ),
+        Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
-          carouselController: widget.carouselController,
-        ),
-      ],
-    );
-  }
-}
-
-class GirlSliderImg extends StatelessWidget {
-  const GirlSliderImg({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        Image.asset(
-          sliderImageAsset,
-          scale: 0.5,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          // mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: getProportionateScreenHeight(72 + kToolbarHeight),
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: getProportionateScreenWidth(43),
-                ),
-                const Text("Tabitha Nauser"),
-              ],
-            ),
-            SizedBox(height: getProportionateScreenHeight(11)),
-            Row(
-              children: [
-                SizedBox(
-                  width: getProportionateScreenWidth(43),
-                ),
-                const Text(
-                  "Bulletproof",
-                  // textAlign: TextAlign.start,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 31,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ],
         ),
       ],
     );

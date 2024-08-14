@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
-import 'package:pod_mood/configs/constants.dart';
 
 class PodBox extends StatelessWidget {
-  const PodBox({super.key});
+  const PodBox({super.key, required this.assetName});
+
+  final String assetName;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const PodImg(),
-        // SizedBox(height: getProportionateScreenHeight(9)),
+        PodImg(assetName: assetName),
+        SizedBox(height: getProportionateScreenHeight(9)),
         const Row(
           children: [
-            Expanded(
-              child: Text(
-                "THE JORDAN HARBING..",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+            Text(
+              "THE JORDAN HARBING..",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
           ],
@@ -28,11 +27,9 @@ class PodBox extends StatelessWidget {
         SizedBox(height: getProportionateScreenHeight(2)),
         const Row(
           children: [
-            Expanded(
-              child: Text(
-                "Celeste Headlee",
-                textAlign: TextAlign.start,
-              ),
+            Text(
+              "Celeste Headlee",
+              textAlign: TextAlign.start,
             ),
           ],
         ),
@@ -42,33 +39,43 @@ class PodBox extends StatelessWidget {
 }
 
 class PodImg extends StatelessWidget {
-  const PodImg({super.key, this.width, this.height});
+  const PodImg({super.key, this.width, this.height, required this.assetName});
+
   final double? width, height;
+  final String assetName;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height != null
-          ? getProportionateScreenHeight(height!)
-          : getProportionateScreenHeight(124),
-      width: width != null
-          ? getProportionateScreenWidth(width!)
-          : getProportionateScreenWidth(124),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        image: const DecorationImage(
-          image: AssetImage(
-            podBoxImgAsset,
-          ),
-          fit: BoxFit.cover,
-        ),
+    // ClipRRect(
+    //   borderRadius: BorderRadius.circular(5),
+    //   child: Image.asset(
+    //     podBoxImgAsset,
+    //     fit: BoxFit.cover,
+    //     // width: 124,
+    //     height: 124,
+    //   ),
+    // )
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(5),
+      child: Image.asset(
+        assetName,
+        height: height != null
+            ? getProportionateScreenHeight(height!)
+            : getProportionateScreenHeight(124),
+        width: width != null
+            ? getProportionateScreenWidth(width!)
+            : getProportionateScreenWidth(124),
       ),
     );
   }
 }
 
 class PodCard extends StatelessWidget {
-  const PodCard({super.key, required this.onPressed});
+  const PodCard({super.key, required this.onPressed, required this.assetName});
+
   final void Function() onPressed;
+  final String assetName;
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -77,39 +84,44 @@ class PodCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 13),
         child: Row(
           children: [
-            const PodImg(
+            PodImg(
               height: 48,
               width: 48,
+              assetName: assetName,
             ),
             SizedBox(
               width: getProportionateScreenWidth(13),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Row(
-                  children: [
-                    Text(
-                      'Expeditiously with tip "T.I." Harris',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Expeditiously with tip "T.I." Harris',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: getProportionateScreenHeight(3),
-                ),
-                const Row(
-                  children: [
-                    Text("Greenwood Online Banking For Us By Us"),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                  SizedBox(
+                    height: getProportionateScreenHeight(3),
+                  ),
+                  const Row(
+                    children: [
+                      Expanded(
+                          child: Text("Greenwood Online Banking For Us By Us")),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            const Spacer(),
             IconButton(
               onPressed: onPressed,
               icon: const Icon(Icons.more_horiz),

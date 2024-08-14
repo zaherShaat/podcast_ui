@@ -15,8 +15,6 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  bool _gettenValue = false;
-  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     SizeConfig sizeConfig = SizeConfig();

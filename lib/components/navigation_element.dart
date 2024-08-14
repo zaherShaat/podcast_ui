@@ -21,6 +21,7 @@ class _MainBottomNavigationBarState extends State<MainBottomNavigationBar> {
       onTap: widget.onTap,
       items: [
         BottomNavigationBarItem(
+          backgroundColor: chly,
           icon: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

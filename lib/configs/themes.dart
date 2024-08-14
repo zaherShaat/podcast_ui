@@ -43,9 +43,8 @@ final theTheme = ThemeData(
       fontWeight: FontWeight.normal,
       // height: 9,
     ),
-    unselectedItemColor: iconColor, 
+    unselectedItemColor: iconColor,
     selectedItemColor: binky,
-    
     unselectedLabelStyle: TextStyle(
       fontFamily: circularStdFamily,
       color: iconColor,
@@ -126,20 +125,18 @@ final theTheme = ThemeData(
     ),
   ),
   switchTheme: SwitchThemeData(
-    trackColor: const MaterialStatePropertyAll(mainSwichColor),
-    thumbColor:
-        MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-      if (states.contains(MaterialState.pressed)) {
-        return binky; // Color when thumb is pressed
-      } else if (states.contains(MaterialState.hovered)) {
-        return iconColor; // Color when thumb is hovered
-      } else if (states.contains(MaterialState.focused)) {
-        return iconColor; // Color when thumb is focused
-      }
-      return binky; // Default color
-    }),
-    trackOutlineWidth: const MaterialStatePropertyAll(0),
-    trackOutlineColor: const MaterialStatePropertyAll(Colors.transparent)
-  ),
-
+      trackColor: const MaterialStatePropertyAll(mainSwichColor),
+      thumbColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        if (states.contains(MaterialState.pressed)) {
+          return binky; // Color when thumb is pressed
+        } else if (states.contains(MaterialState.hovered)) {
+          return iconColor; // Color when thumb is hovered
+        } else if (states.contains(MaterialState.focused)) {
+          return iconColor; // Color when thumb is focused
+        }
+        return binky; // Default color
+      }),
+      trackOutlineWidth: const MaterialStatePropertyAll(0),
+      trackOutlineColor: const MaterialStatePropertyAll(Colors.transparent)),
 );

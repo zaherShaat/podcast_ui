@@ -15,8 +15,8 @@ class NavigationPage extends StatefulWidget {
 
 class _NavigationPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
-  final _pages =  [
-    HomePage(),
+  final _pages = [
+    const HomePage(),
     const RadioHomePage(),
     const PodcastsHomePage(),
     const EventsHomePage(),
