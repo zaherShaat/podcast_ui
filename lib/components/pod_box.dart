@@ -59,6 +59,7 @@ class PodImg extends StatelessWidget {
       borderRadius: BorderRadius.circular(5),
       child: Image.asset(
         assetName,
+        fit: BoxFit.cover,
         height: height != null
             ? getProportionateScreenHeight(height!)
             : getProportionateScreenHeight(124),
@@ -71,11 +72,17 @@ class PodImg extends StatelessWidget {
 }
 
 class PodCard extends StatelessWidget {
-  const PodCard({super.key, required this.onPressed, required this.assetName});
+  final bool favCard;
+
+  const PodCard(
+      {super.key,
+      required this.onPressed,
+      required this.assetName,
+      this.favCard = false, this.imgHeight, this.imgWidth});
 
   final void Function() onPressed;
   final String assetName;
-
+  final double? imgHeight, imgWidth;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -85,8 +92,8 @@ class PodCard extends StatelessWidget {
         child: Row(
           children: [
             PodImg(
-              height: 48,
-              width: 48,
+              height: imgHeight ?? 48,
+              width: imgWidth ?? 48,
               assetName: assetName,
             ),
             SizedBox(
@@ -126,6 +133,7 @@ class PodCard extends StatelessWidget {
               onPressed: onPressed,
               icon: const Icon(Icons.more_horiz),
             ),
+            favCard ? Icon(Icons.favorite) : Container(),
           ],
         ),
       ),

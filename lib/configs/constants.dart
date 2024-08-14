@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 const String circularStdFamily = "CircularStd";
 const String hKGroteskFamily = "HKGrotesk";
 const String podBoxImgAsset = "assets/images/jordan_pod.png";
+const String podBannerAsset = "assets/images/Banner.png";
+
 const String eventBackAsset = "assets/images/event_back_img.png";
 const String sliderImageAsset = "assets/images/Slider-image.png";
 const String radioIconAsset = "assets/images/Icon-Radio.svg";
