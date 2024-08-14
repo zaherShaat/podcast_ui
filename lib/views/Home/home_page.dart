@@ -38,64 +38,64 @@ class _HomePageState extends State<HomePage> {
           PositionedDirectional(
             top: getScreenHeight(3),
             bottom: 0,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const TitleTxt(
-                    title: "Popular Broadcast",
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const TitleTxt(
+                  title: "Popular Broadcast",
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(12),
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(161),
+                  width: getScreenWidth(1),
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      SizedBox(
+                        width: getProportionateScreenWidth(19),
+                      ),
+                      const PopPodsImg(),
+                      SizedBox(
+                        width: getProportionateScreenWidth(15),
+                      ),
+                      const PopPodsImg(),
+                      SizedBox(
+                        width: getProportionateScreenWidth(15),
+                      ),
+                      const PopPodsImg(),
+                      SizedBox(
+                        width: getProportionateScreenWidth(15),
+                      ),
+                      const PopPodsImg(),
+                      SizedBox(
+                        width: getProportionateScreenWidth(15),
+                      ),
+                      const PopPodsImg(),
+                      SizedBox(
+                        width: getProportionateScreenWidth(15),
+                      ),
+                      const PopPodsImg(),
+                      SizedBox(
+                        width: getProportionateScreenWidth(15),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(12),
-                  ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(161),
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(20),
+                ),
+                const TitleTxt(
+                  title: "Similar Broadcast",
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(12),
+                ),
+                Expanded(
+                  child: SizedBox(
                     width: getScreenWidth(1),
                     child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        SizedBox(
-                          width: getProportionateScreenWidth(19),
-                        ),
-                        const PopPodsImg(),
-                        SizedBox(
-                          width: getProportionateScreenWidth(15),
-                        ),
-                        const PopPodsImg(),
-                        SizedBox(
-                          width: getProportionateScreenWidth(15),
-                        ),
-                        const PopPodsImg(),
-                        SizedBox(
-                          width: getProportionateScreenWidth(15),
-                        ),
-                        const PopPodsImg(),
-                        SizedBox(
-                          width: getProportionateScreenWidth(15),
-                        ),
-                        const PopPodsImg(),
-                        SizedBox(
-                          width: getProportionateScreenWidth(15),
-                        ),
-                        const PopPodsImg(),
-                        SizedBox(
-                          width: getProportionateScreenWidth(15),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(20),
-                  ),
-                  const TitleTxt(
-                    title: "Similar Broadcast",
-                  ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(12),
-                  ),
-                  SizedBox(
-                    width: getScreenWidth(1),
-                    child: Column(
                       children: List.generate(
                         4,
                         (index) => Padding(
@@ -112,8 +112,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
