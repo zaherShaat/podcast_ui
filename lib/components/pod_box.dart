@@ -39,9 +39,9 @@ class PodBox extends StatelessWidget {
 }
 
 class PodImg extends StatelessWidget {
-  const PodImg({super.key, this.width, this.height, required this.assetName});
+  const PodImg({super.key, this.width, this.height, required this.assetName,  this. radius});
 
-  final double? width, height;
+  final double? width, height,radius;
   final String assetName;
 
   @override
@@ -56,7 +56,7 @@ class PodImg extends StatelessWidget {
     //   ),
     // )
     return ClipRRect(
-      borderRadius: BorderRadius.circular(5),
+      borderRadius: BorderRadius.circular(radius??5),
       child: Image.asset(
         assetName,
         fit: BoxFit.cover,

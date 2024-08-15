@@ -1,5 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pod_mood/components/pod_box.dart';
+import 'package:pod_mood/configs/SizeConfig.dart';
+import 'package:pod_mood/configs/constants.dart';
 import 'package:pod_mood/views/PodcastPlayer/Components/blured_img.dart';
 
 class PodcastPlayerHome extends StatefulWidget {
@@ -31,11 +35,128 @@ class _PodcastPlayerHomeState extends State<PodcastPlayerHome> {
 
   @override
   Widget build(BuildContext context) {
+    final thisTheme = Theme.of(context);
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
-          BluredImg(),
+          const BluredImg(),
+          SingleChildScrollView(
+            padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(19)),
+            child: Column(
+              children: [
+                const SizedBox(height: kToolbarHeight),
+                Row(
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.keyboard_backspace,
+                        color: binky,
+                        // weight: ,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(113),
+                ),
+                PodImg(
+                  assetName: podBoxImgAsset,
+                  height: getProportionateScreenHeight(190),
+                  width: getProportionateScreenWidth(190),
+                  radius: 10,
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(31),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "The Jordan Harbinger show",
+                      style: thisTheme.textTheme.displayLarge,
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(8),
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Celeste Headlee",
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(40),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "41:08",
+                      style: thisTheme.textTheme.labelSmall,
+                    ),
+                    SizedBox(
+                      width: getProportionateScreenWidth(11.7),
+                    ),
+                    SvgPicture.asset(podcastWaveAsset),
+                    SizedBox(
+                      width: getProportionateScreenWidth(11.7),
+                    ),
+                    Icon(Icons.favorite),
+                  ],
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(58),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.skip_previous_outlined,
+                        size: 40,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      width: getProportionateScreenWidth(56),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: iconBackgroundColor,
+                      ),
+                      child: InkWell(
+                        child: Icon(
+                          Icons.play_arrow,
+                          color: Colors.white,
+                          size: 50,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: getProportionateScreenWidth(56),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.skip_next_outlined,
+                        size: 40,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
