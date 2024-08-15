@@ -22,15 +22,10 @@ class _PodcastPlayerHomeState extends State<PodcastPlayerHome> {
     super.initState();
   }
 
-  _playSound() async {
-    // Replace this URL with the URL of the sound you want to play
-    const url = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-
-    await _player.play(UrlSource(url));
-  }
-
-  _stopSound() async {
-    await _player.stop();
+  @override
+  void dispose() {
+    super.dispose();
+    _player.dispose();
   }
 
   @override
@@ -107,7 +102,7 @@ class _PodcastPlayerHomeState extends State<PodcastPlayerHome> {
                     SizedBox(
                       width: getProportionateScreenWidth(11.7),
                     ),
-                    Icon(Icons.favorite),
+                    const Icon(Icons.favorite),
                   ],
                 ),
                 SizedBox(
@@ -118,27 +113,109 @@ class _PodcastPlayerHomeState extends State<PodcastPlayerHome> {
                   children: [
                     InkWell(
                       onTap: () {},
-                      child: Icon(
+                      child: const Icon(
                         Icons.skip_previous_outlined,
                         size: 40,
                         color: Colors.white,
+                        // weight: 1,
                       ),
                     ),
                     SizedBox(
                       width: getProportionateScreenWidth(56),
                     ),
                     Container(
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(16),
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: iconBackgroundColor,
                       ),
-                      child: InkWell(
-                        child: Icon(
-                          Icons.play_arrow,
-                          color: Colors.white,
-                          size: 50,
-                        ),
+                      child: Builder(
+                        builder: (context) {
+                          switch (_player.state) {
+                            case PlayerState.stopped:
+                              return loading
+                                  ? const CircularProgressIndicator.adaptive()
+                                  : InkWell(
+                                      onTap: () async {
+                                        await _playSound();
+                                        debugPrint(
+                                            "${_player.state.name} >> state stopped");
+                                      },
+                                      child: const Icon(
+                                        Icons.play_arrow,
+                                        color: Colors.white,
+                                        size: 50,
+                                      ),
+                                    );
+                            case PlayerState.playing:
+                              return loading
+                                  ? const CircularProgressIndicator.adaptive()
+                                  : InkWell(
+                                      onTap: () async {
+                                        await _stopSound();
+                                        debugPrint(
+                                            "${_player.state.name} >> state playing");
+                                      },
+                                      child: const Icon(
+                                        Icons.pause,
+                                        color: Colors.white,
+                                        size: 50,
+                                      ),
+                                    );
+                            case PlayerState.paused:
+                              return loading
+                                  ? const CircularProgressIndicator.adaptive()
+                                  : InkWell(
+                                      onTap: () async {
+                                        await _resumeSound();
+
+                                        debugPrint(
+                                            "${_player.state.name} >> state paused");
+                                      },
+                                      child: const Icon(
+                                        Icons.play_arrow,
+                                        color: Colors.white,
+                                        size: 50,
+                                      ),
+                                    );
+                            case PlayerState.completed:
+                              return loading
+                                  ? const CircularProgressIndicator.adaptive()
+                                  : InkWell(
+                                      onTap: () async {
+                                        await _playSound();
+
+                                        debugPrint(
+                                            "${_player.state.name} >> state completed");
+                                      },
+                                      child: const Icon(
+                                        Icons.play_arrow,
+                                        color: Colors.white,
+                                        size: 50,
+                                      ),
+                                    );
+                            case PlayerState.disposed:
+                              return loading
+                                  ? const CircularProgressIndicator.adaptive()
+                                  : InkWell(
+                                      onTap: () async {
+                                        await _playSound();
+
+                                        debugPrint(
+                                            "${_player.state.name} >> state disposed");
+                                      },
+                                      child: const Icon(
+                                        Icons.play_arrow,
+                                        color: Colors.white,
+                                        size: 50,
+                                      ),
+                                    );
+                            default:
+                              return loading
+                                  ? const CircularProgressIndicator.adaptive()
+                                  : Container();
+                          }
+                        },
                       ),
                     ),
                     SizedBox(
@@ -146,7 +223,7 @@ class _PodcastPlayerHomeState extends State<PodcastPlayerHome> {
                     ),
                     InkWell(
                       onTap: () {},
-                      child: Icon(
+                      child: const Icon(
                         Icons.skip_next_outlined,
                         size: 40,
                         color: Colors.white,
@@ -160,5 +237,27 @@ class _PodcastPlayerHomeState extends State<PodcastPlayerHome> {
         ],
       ),
     );
+  }
+
+  _resumeSound() async {
+    await _player.resume();
+    setState(() {});
+  }
+
+  _playSound() async {
+    setState(() {
+      loading = true;
+    });
+    // Replace this URL with the URL of the sound you want to play
+    const url = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+    await _player.play(UrlSource(url));
+    setState(() {
+      loading = false;
+    });
+  }
+
+  _stopSound() async {
+    await _player.stop();
+    setState(() {});
   }
 }
