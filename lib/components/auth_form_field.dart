@@ -9,17 +9,24 @@ class AuthFormField extends StatelessWidget {
     this.label,
     this.hint,
     this.cornerRadius,
+    this.secondaryIconColor, required this.controller,
   });
   final IconData icon;
   final bool enabled;
   final String? label, hint;
   final double? cornerRadius;
+  final Color? secondaryIconColor;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
-        prefixIcon: Icon(icon),
+        prefixIcon: Icon(
+          icon,
+          color: secondaryIconColor,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(cornerRadius ?? 6),
         ),
@@ -41,7 +48,7 @@ class AuthFormField extends StatelessWidget {
             color: Colors.transparent,
           ),
         ),
-        fillColor: const Color.fromRGBO(29, 25, 44, 1),
+        fillColor: deebPurble,
         hintText: hint,
         labelText: label,
         hintStyle: theme.textTheme.bodyMedium!.copyWith(

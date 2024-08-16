@@ -103,7 +103,7 @@ final theTheme = ThemeData(
       fontWeight: FontWeight.normal,
       // height: 14,
     ),
-    labelMedium:  TextStyle(
+    labelMedium: TextStyle(
       fontFamily: circularStdFamily,
       color: Color.fromRGBO(123, 123, 139, 1),
       fontSize: 11,
@@ -122,6 +122,7 @@ final theTheme = ThemeData(
     buttonColor: Colors.white,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
     padding: const EdgeInsets.symmetric(vertical: 18),
+    textTheme: ButtonTextTheme.primary, 
     // height: 48,
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
@@ -174,4 +175,12 @@ final theTheme = ThemeData(
       }),
       trackOutlineWidth: const MaterialStatePropertyAll(0),
       trackOutlineColor: const MaterialStatePropertyAll(Colors.transparent)),
+  checkboxTheme: CheckboxThemeData(
+    checkColor: const MaterialStatePropertyAll(deluge),
+    fillColor: const MaterialStatePropertyAll(deebPurble),
+    side: BorderSide.none,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(150),
+    ),
+  ),
 );
