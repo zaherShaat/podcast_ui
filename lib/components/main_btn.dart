@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/themes.dart';
-import 'package:pod_mood/views/Auth/signup_screen.dart';
+import 'package:pod_mood/views/Auth/forgot_password_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -21,7 +21,7 @@ class _MainAppState extends State<MainApp> {
     sizeConfig.init(context);
     return MaterialApp(
       theme: theTheme,
-      home: const SignUpScreen(),
+      home:  ForgotPasswordScreen(),
     );
   }
 }
