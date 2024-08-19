@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/themes.dart';
-import 'package:pod_mood/views/Auth/login_screen.dart';
-import 'package:pod_mood/views/navigation_page.dart';
+import 'package:pod_mood/views/Auth/signup_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -22,7 +21,7 @@ class _MainAppState extends State<MainApp> {
     sizeConfig.init(context);
     return MaterialApp(
       theme: theTheme,
-      home:  LoginScreen(),
+      home: const SignUpScreen(),
     );
   }
 }

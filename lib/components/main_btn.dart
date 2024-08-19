@@ -64,7 +64,7 @@ class GradientMainBtn extends StatelessWidget {
   final IconData? iconData;
   final String label;
   final List<Color>? gradientColors;
-  final bool bold;
+  // final bool bold;
 
   const GradientMainBtn(
       {super.key,
@@ -72,7 +72,7 @@ class GradientMainBtn extends StatelessWidget {
       this.iconData,
       required this.label,
       this.gradientColors,
-      required this.bold});
+     });
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -93,7 +93,7 @@ class GradientMainBtn extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 16),
             child: Text(
               label,
-              style: theme.textTheme.bodyLarge!.copyWith(fontSize: 16),
+              style: theme.textTheme.displayLarge!.copyWith(fontSize: 16),
             ),
           ),
         ),

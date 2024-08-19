@@ -6,19 +6,17 @@ import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
 import 'package:pod_mood/views/Auth/Components/checkbox_tile.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  bool _rememberMeVal = true;
+class _SignUpScreenState extends State<SignUpScreen> {
+  final TextEditingController _usernameC = TextEditingController();
 
-  final _emailController = TextEditingController();
-
-  final _passwordController = TextEditingController();
+  bool _recieveMailsVal = true;
 
   @override
   Widget build(BuildContext context) {
@@ -32,84 +30,93 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: getProportionateScreenHeight(kToolbarHeight),
             ),
-            SvgPicture.asset(logoAsset),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Sign Up",
+                  style: theme.textTheme.displayLarge,
+                ),
+              ],
+            ),
             SizedBox(
-              height: getProportionateScreenHeight(29),
+              height: getProportionateScreenHeight(9),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Welcome Back!",
-                  style: theme.textTheme.bodyLarge!.copyWith(fontSize: 20),
-                ),
-              ],
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Login to continue Radio App",
+                  "Sign Up and Start Learning",
+                  style: theme.textTheme.labelLarge,
                 ),
               ],
             ),
             SizedBox(
-              height: getProportionateScreenHeight(27),
+              height: getProportionateScreenHeight(18),
             ),
             AuthFormField(
-              icon: Icons.email_outlined,
+              hint: "User Name",
+              iconWidget: SvgPicture.asset(
+                profileIconAsset,
+                height: getProportionateScreenHeight(13),
+                width: getProportionateScreenWidth(10),
+              ),
+              controller: _usernameC,
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(18),
+            ),
+            AuthFormField(
               hint: "Email Address",
-              secondaryIconColor: deluge,
-              controller: _emailController,
+              iconWidget: SvgPicture.asset(
+                mailIconAsset,
+                height: getProportionateScreenHeight(13),
+                width: getProportionateScreenWidth(10),
+              ),
+              controller: _usernameC,
             ),
             SizedBox(
               height: getProportionateScreenHeight(18),
             ),
             AuthFormField(
-              icon: Icons.lock,
               hint: "Password",
-              secondaryIconColor: deluge,
-              controller: _passwordController,
+              iconWidget: SvgPicture.asset(
+                lockIconAsset,
+                height: getProportionateScreenHeight(13),
+                width: getProportionateScreenWidth(10),
+              ),
+              controller: _usernameC,
             ),
             SizedBox(
               height: getProportionateScreenHeight(18),
             ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: CheckBoxTile(
-                    value: _rememberMeVal,
-                    onChanged: (newValue) {
-                      setState(() {
-                        _rememberMeVal = newValue!;
-                      });
-                    },
-                    label: "Remember me",
-                  ),
-                ),
-                // const Spacer(
-                //   flex: 1,
-                // ),
-                const InkWell(
-                  child: Text("Forgot password?"),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: getProportionateScreenHeight(18),
-            ),
-            GradientMainBtn(
-              onPressed: () {},
-              label: "Log In",
+            CheckBoxTile(
+              value: _recieveMailsVal,
+              fillColor: binky,
+              onChanged: (newValue) {
+                setState(() {
+                  _recieveMailsVal = newValue!;
+                });
+              },
+              label:
+                  "Yes! I want to get the most out of Ezymaster by receiving emails with exclusive deals and learning tips!",
             ),
             SizedBox(
               height: getProportionateScreenHeight(22),
             ),
-            const Row(
+            GradientMainBtn(
+              onPressed: () {},
+              label: "Sign up",
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(22),
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "OR",
+                  style: theme.textTheme.labelLarge,
                 ),
               ],
             ),
@@ -146,52 +153,23 @@ class _LoginScreenState extends State<LoginScreen> {
               txtColor: Colors.white,
             ),
             SizedBox(
-              height: getProportionateScreenHeight(23),
+              height: getProportionateScreenHeight(56),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Don't have an account? "),
+                Text(
+                  "Already have an account? ",
+                  style: theme.textTheme.labelLarge,
+                ),
                 InkWell(
                   onTap: () {},
                   child: const Text(
-                    "Sign up",
+                    "Log in",
                     style: TextStyle(color: binky),
                   ),
                 ),
               ],
-            ),
-            SizedBox(
-              height: getProportionateScreenHeight(58),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  flex: 5,
-                  child: InkWell(
-                    onTap: () {},
-                    child: const Text.rich(
-                      textAlign: TextAlign.center,
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text:
-                                "By signing up you indicate that you have read and agreed to the Patch",
-                          ),
-                          TextSpan(
-                            text: " Terms of Service",
-                            style: TextStyle(color: binky),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: getProportionateScreenHeight(12),
             ),
           ],
         ),
