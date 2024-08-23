@@ -17,6 +17,10 @@ const String homeIconAsset = "assets/images/Icon feather-home.svg";
 const String logoAsset = "assets/images/Logo.svg";
 const String facebookLogo = "assets/images/facebook-logo.svg";
 const String googleLogo = "assets/images/Google Logo.svg.svg";
+const String tutorialElementsAsset = "assets/images/tutorial_elements.svg";
+const String tutorialElementsPngAsset = "assets/images/tutorial_elements.png";
+const String radioImgAsset = "assets/images/radioImg.svg";
+const String musicElementsAsset = "assets/images/music_elements.svg";
 const String podCardImg = "assets/images/card-image.png";
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -37,3 +41,4 @@ const Color deluge = Color.fromRGBO(116, 119, 160, 1);
 const Color blackRussian = Color.fromRGBO(19, 19, 26, 1);
 const Color iconBackgroundColor = Color.fromRGBO(25, 25, 37, 1);
 const Color deebPurble = Color.fromRGBO(29, 25, 44, 1);
+const Color gunmetal = Color.fromRGBO(48, 48, 60, 1);

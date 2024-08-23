@@ -50,17 +50,32 @@ class _DotsContainersState extends State<DotsContainers> {
 }
 
 class Dot extends StatelessWidget {
-  const Dot({super.key, required this.selected});
+  const Dot({
+    super.key,
+    required this.selected,
+    this.height,
+    this.width,
+    this.noneBorder = false,
+    this.selectedColor,
+    this.unSelectedColor,
+  });
   final bool selected;
+  final double? height, width;
+  final bool noneBorder;
+  final Color? selectedColor, unSelectedColor;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getProportionateScreenHeight(6),
-      width: getProportionateScreenWidth(6),
+      height: height ?? getProportionateScreenHeight(6),
+      width: width ?? getProportionateScreenWidth(6),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: selected ? Colors.white : Colors.transparent,
-        border: Border.all(color: Colors.white),
+        color: selected
+            ? selectedColor ?? Colors.white
+            : noneBorder
+                ? unSelectedColor
+                : Colors.transparent,
+        border: noneBorder ? null : Border.all(color: Colors.white),
       ),
     );
   }
