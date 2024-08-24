@@ -39,9 +39,14 @@ class PodBox extends StatelessWidget {
 }
 
 class PodImg extends StatelessWidget {
-  const PodImg({super.key, this.width, this.height, required this.assetName,  this. radius});
+  const PodImg(
+      {super.key,
+      this.width,
+      this.height,
+      required this.assetName,
+      this.radius});
 
-  final double? width, height,radius;
+  final double? width, height, radius;
   final String assetName;
 
   @override
@@ -56,7 +61,7 @@ class PodImg extends StatelessWidget {
     //   ),
     // )
     return ClipRRect(
-      borderRadius: BorderRadius.circular(radius??5),
+      borderRadius: BorderRadius.circular(radius ?? 5),
       child: Image.asset(
         assetName,
         fit: BoxFit.cover,
@@ -78,13 +83,16 @@ class PodCard extends StatelessWidget {
       {super.key,
       required this.onPressed,
       required this.assetName,
-      this.favCard = false, this.imgHeight, this.imgWidth});
+      this.favCard = false,
+      this.imgHeight,
+      this.imgWidth});
 
   final void Function() onPressed;
   final String assetName;
   final double? imgHeight, imgWidth;
   @override
   Widget build(BuildContext context) {
+    final thisTheme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
@@ -104,13 +112,14 @@ class PodCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     children: [
                       Expanded(
                         child: Text(
                           'Expeditiously with tip "T.I." Harris',
-                          style: TextStyle(
-                            color: Colors.white,
+                          style: thisTheme.textTheme.displaySmall!.copyWith(
+                            fontFamily: "HKGrotesk",
+                            fontSize: 10,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -120,10 +129,16 @@ class PodCard extends StatelessWidget {
                   SizedBox(
                     height: getProportionateScreenHeight(3),
                   ),
-                  const Row(
+                  Row(
                     children: [
                       Expanded(
-                          child: Text("Greenwood Online Banking For Us By Us")),
+                        child: Text(
+                          "Greenwood Online Banking For Us By Us",
+                          style: thisTheme.textTheme.labelSmall!.copyWith(
+                            fontFamily: "HKGrotesk",
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -133,7 +148,11 @@ class PodCard extends StatelessWidget {
               onPressed: onPressed,
               icon: const Icon(Icons.more_horiz),
             ),
-            favCard ? Icon(Icons.favorite) : Container(),
+            favCard
+                ? const Icon(
+                    Icons.favorite,
+                  )
+                : Container(),
           ],
         ),
       ),

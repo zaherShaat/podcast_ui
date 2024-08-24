@@ -23,7 +23,12 @@ const String radioImgAsset = "assets/images/radioImg.svg";
 const String musicElementsAsset = "assets/images/music_elements.svg";
 const String podCardImg = "assets/images/card-image.png";
 ///////////////////////////////////////////////////////////////////////////////////
-
+const LinearGradient  scaffoldGradient = LinearGradient(
+  colors: [topScaffoldColor, bottomScaffoldColor],
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+);
+/////////////////////////////////////////
 const Color binky = Color.fromRGBO(251, 101, 128, 1);
 const Color white = Color.fromRGBO(255, 255, 255, 1);
 const Color black = Color.fromRGBO(0, 0, 0, 1);
@@ -34,7 +39,9 @@ const Color btnBlue = Color.fromRGBO(57, 87, 154, 1);
 
 const Color chly = Color.fromRGBO(24, 26, 38, 1);
 const Color cardColor = Color.fromRGBO(11, 11, 21, 1);
-const Color scaffoldColor = Color.fromRGBO(45, 44, 60, 1);
+const Color bottomScaffoldColor = Color.fromRGBO(45, 44, 60, 1);
+const Color topScaffoldColor = Color.fromRGBO(25, 25, 36, 1);
+
 const Color iconColor = Color.fromRGBO(92, 94, 111, 1);
 const Color mainSwichColor = Color.fromRGBO(43, 42, 58, 1);
 const Color deluge = Color.fromRGBO(116, 119, 160, 1);

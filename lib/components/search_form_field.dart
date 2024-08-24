@@ -43,7 +43,7 @@ class _SearchFormFieldState extends State<SearchFormField> {
             color: Colors.transparent,
           ),
         ),
-        fillColor: const Color.fromRGBO(29, 25, 44, 1),
+        fillColor: bottomScaffoldColor,
         hintText: "Search here...",
         // labelText: "Search",
         hintStyle: const TextStyle(

@@ -2,12 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:pod_mood/configs/constants.dart';
 
 final theTheme = ThemeData(
-  scaffoldBackgroundColor: scaffoldColor,
+  scaffoldBackgroundColor: Colors.transparent,
   iconButtonTheme: const IconButtonThemeData(
     style: ButtonStyle(
       padding: MaterialStatePropertyAll(EdgeInsets.zero),
       elevation: MaterialStatePropertyAll(8),
       iconSize: MaterialStatePropertyAll(18),
+    ),
+  ),
+  appBarTheme: const AppBarTheme(
+    backgroundColor: topScaffoldColor,
+    actionsIconTheme: IconThemeData(
+      color: binky,
+    ),
+    elevation: 0,
+    centerTitle: false,
+    titleTextStyle: TextStyle(
+      color: white,
+      fontFamily: circularStdFamily,
+      fontSize: 23,
+      fontWeight: FontWeight.bold,
+      // height: 20,
+    ),
+    iconTheme: IconThemeData(
+      color: binky,
     ),
   ),
   primaryColor: chly,
@@ -113,7 +131,7 @@ final theTheme = ThemeData(
     labelSmall: TextStyle(
       fontFamily: circularStdFamily,
       color: slateGray,
-      fontSize: 9,
+      fontSize: 10,
       fontWeight: FontWeight.normal,
       // height: 9,
     ),

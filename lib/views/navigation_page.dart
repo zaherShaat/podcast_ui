@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pod_mood/components/navigation_element.dart';
+import 'package:pod_mood/components/public_gardient_body.dart';
 import 'package:pod_mood/views/Events/events_home_page.dart';
 import 'package:pod_mood/views/Home/home_page.dart';
 import 'package:pod_mood/views/Podcasts/podcasts_home_page.dart';
@@ -33,7 +34,7 @@ class _NavigationPageState extends State<NavigationPage> {
           });
         },
       ),
-      body: _pages.elementAt(_selectedIndex),
+      body:GradientBackground(child:  _pages.elementAt(_selectedIndex)),
     );
   }
 }

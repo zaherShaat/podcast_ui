@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/themes.dart';
 import 'package:pod_mood/views/Auth/forgot_password_screen.dart';
+import 'package:pod_mood/views/Search/search_home.dart';
 import 'package:pod_mood/views/Tutorial/tutorial_home.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class _MainAppState extends State<MainApp> {
     sizeConfig.init(context);
     return MaterialApp(
       theme: theTheme,
-      home:  const TutorialHome(),
+      home:  const SearchHome(),
     );
   }
 }
