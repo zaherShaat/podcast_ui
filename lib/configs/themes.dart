@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pod_mood/configs/constants.dart';
 
-final theTheme = ThemeData(
+final theTheme =  ThemeData(
   scaffoldBackgroundColor: Colors.transparent,
   iconButtonTheme: const IconButtonThemeData(
     style: ButtonStyle(
@@ -95,21 +95,21 @@ final theTheme = ThemeData(
     ),
     displayLarge: TextStyle(
       color: white,
-      fontFamily: circularStdFamily,
+      fontFamily: hKGroteskFamily,
       fontSize: 22,
       fontWeight: FontWeight.bold,
       // height: 20,
     ),
     displayMedium: TextStyle(
       color: white,
-      fontFamily: circularStdFamily,
+      fontFamily: hKGroteskFamily,
       fontSize: 14,
       fontWeight: FontWeight.normal,
       // height: 14,
     ),
     displaySmall: TextStyle(
       color: white,
-      fontFamily: circularStdFamily,
+      fontFamily: hKGroteskFamily,
       fontSize: 12,
       fontWeight: FontWeight.normal,
       // height: 12,

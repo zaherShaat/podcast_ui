@@ -7,6 +7,8 @@ class PopPodsImg extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theTheme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -20,23 +22,27 @@ class PopPodsImg extends StatelessWidget {
           ),
         ),
         SizedBox(height: getProportionateScreenHeight(9)),
-        const Row(
+        Row(
           children: [
             Text(
               "THE JORDAN HARBING..",
-              style: TextStyle(
+              style: theTheme.textTheme.displaySmall!.copyWith(
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
               ),
+              // style: TextStyle(
+              //   fontWeight: FontWeight.bold,
+              //   color: Colors.white,
+              // ),
             ),
           ],
         ),
         SizedBox(height: getProportionateScreenHeight(2)),
-        const Row(
+        Row(
           children: [
             Text(
               "Celeste Headlee",
               textAlign: TextAlign.start,
+              style: theTheme.textTheme.labelSmall,
             ),
           ],
         ),
