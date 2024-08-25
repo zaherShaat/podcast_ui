@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pod_mood/components/public_gardient_body.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
-import 'package:pod_mood/views/Home/components/pop_pods_image.dart';
+import 'package:pod_mood/views/Events/Components/banner_stack.dart';
+import 'package:pod_mood/views/Events/Components/podcast_cats_tabs.dart';
 
 class EventsHomePage extends StatelessWidget {
   const EventsHomePage({super.key});
@@ -40,6 +41,7 @@ class EventsHomePage extends StatelessWidget {
       ),
       body: GradientBackground(
         child: ListView(
+          // shrinkWrap: true,
           children: [
             Row(
               children: <Widget>[
@@ -75,51 +77,32 @@ class EventsHomePage extends StatelessWidget {
             SizedBox(
               height: getProportionateScreenHeight(161),
               width: getScreenWidth(1),
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  SizedBox(
-                    width: getProportionateScreenWidth(19),
-                  ),
-                  const PopPodsImg(),
-                  SizedBox(
-                    width: getProportionateScreenWidth(15),
-                  ),
-                  const PopPodsImg(),
-                  SizedBox(
-                    width: getProportionateScreenWidth(15),
-                  ),
-                  const PopPodsImg(),
-                  SizedBox(
-                    width: getProportionateScreenWidth(15),
-                  ),
-                  const PopPodsImg(),
-                  SizedBox(
-                    width: getProportionateScreenWidth(15),
-                  ),
-                  const PopPodsImg(),
-                  SizedBox(
-                    width: getProportionateScreenWidth(15),
-                  ),
-                  const PopPodsImg(),
-                  SizedBox(
-                    width: getProportionateScreenWidth(15),
-                  ),
-                ],
-              ),
+              child: const EventsHorizontalView(),
             ),
             SizedBox(
               height: getProportionateScreenHeight(23.5),
             ),
             //DJ banner
+            const BannerStack(),
             SizedBox(
               height: getProportionateScreenHeight(23.5),
             ),
             //cats hrizontal tabs
-            SizedBox(
-              height: getProportionateScreenHeight(23.5),
+            Row(
+              children: [
+                SizedBox(
+                  width: getProportionateScreenWidth(19),
+                ),
+                const Expanded(child: PodcastCategoriesTabs()),
+                SizedBox(
+                  width: getProportionateScreenWidth(19),
+                ),
+              ],
             ),
-            // the pods for every cat will be PODPOXIMG
+            // SizedBox(
+            //   height: getProportionateScreenHeight(23.5),
+            // ),
+            // // the pods for every cat will be PODPOXIMG
             SizedBox(
               height: getProportionateScreenHeight(12),
             ),
