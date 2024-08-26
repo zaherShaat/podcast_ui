@@ -99,10 +99,6 @@ class EventsHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            // SizedBox(
-            //   height: getProportionateScreenHeight(23.5),
-            // ),
-            // // the pods for every cat will be PODPOXIMG
             SizedBox(
               height: getProportionateScreenHeight(12),
             ),

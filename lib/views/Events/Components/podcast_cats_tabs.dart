@@ -50,7 +50,7 @@ class _PodcastCategoriesTabsState extends State<PodcastCategoriesTabs> {
                   _currentIndex = index;
                   _pagesC.animateToPage(
                     _currentIndex,
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     curve: Curves.decelerate,
                   );
                 });
@@ -62,7 +62,7 @@ class _PodcastCategoriesTabsState extends State<PodcastCategoriesTabs> {
         ),
         SizedBox(
           height: getProportionateScreenHeight(158),
-          width: getProportionateScreenWidth(1),
+          width: getScreenWidth(1),
           child: PageView(
             scrollDirection: Axis.horizontal,
             physics: const NeverScrollableScrollPhysics(),
@@ -83,9 +83,9 @@ class EventsHorizontalView extends StatelessWidget {
     return ListView(
       scrollDirection: Axis.horizontal,
       children: [
-        SizedBox(
-          width: getProportionateScreenWidth(19),
-        ),
+        // SizedBox(
+        //   width: getProportionateScreenWidth(19),
+        // ),
         const PopPodsImg(),
         SizedBox(
           width: getProportionateScreenWidth(15),
