@@ -4,6 +4,7 @@ import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
 import 'package:pod_mood/views/Events/Components/banner_stack.dart';
 import 'package:pod_mood/views/Events/Components/podcast_cats_tabs.dart';
+import 'package:pod_mood/views/Events/event_details.dart';
 
 class EventsHomePage extends StatelessWidget {
   const EventsHomePage({super.key});
@@ -76,7 +77,9 @@ class EventsHomePage extends StatelessWidget {
             ),
             Row(
               children: [
-                SizedBox(width: getProportionateScreenWidth(19),),
+                SizedBox(
+                  width: getProportionateScreenWidth(19),
+                ),
                 Expanded(
                   child: SizedBox(
                     height: getProportionateScreenHeight(161),
@@ -90,7 +93,17 @@ class EventsHomePage extends StatelessWidget {
               height: getProportionateScreenHeight(23.5),
             ),
             //DJ banner
-            const BannerStack(),
+            InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          const EventDetailsPage(),
+                    ),
+                  );
+                },
+                child: const BannerStack()),
             SizedBox(
               height: getProportionateScreenHeight(23.5),
             ),

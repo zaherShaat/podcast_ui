@@ -92,9 +92,14 @@ class EventBluredStack extends StatelessWidget {
                 SizedBox(
                   width: getProportionateScreenWidth(19),
                 ),
-                const Icon(
-                  Icons.arrow_back,
-                  color: binky,
+                InkWell( 
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(
+                    Icons.arrow_back,
+                    color: binky,
+                  ),
                 ),
                 SizedBox(
                   width: getProportionateScreenWidth(6),
