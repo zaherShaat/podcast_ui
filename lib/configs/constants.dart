@@ -4,6 +4,7 @@ const String circularStdFamily = "CircularStd";
 const String hKGroteskFamily = "HKGrotesk";
 const String podBoxImgAsset = "assets/images/jordan_pod.png";
 const String podBannerAsset = "assets/images/Banner.png";
+const String eventsBannerAsset = "assets/images/event_details.png";
 const String mailIconAsset = "assets/images/mail-icon.svg";
 const String lockIconAsset = "assets/images/lock-icon.svg";
 const String eventBackAsset = "assets/images/event_back_img.png";

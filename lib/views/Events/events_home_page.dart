@@ -74,10 +74,17 @@ class EventsHomePage extends StatelessWidget {
             SizedBox(
               height: getProportionateScreenHeight(15),
             ),
-            SizedBox(
-              height: getProportionateScreenHeight(161),
-              width: getScreenWidth(1),
-              child: const EventsHorizontalView(),
+            Row(
+              children: [
+                SizedBox(width: getProportionateScreenWidth(19),),
+                Expanded(
+                  child: SizedBox(
+                    height: getProportionateScreenHeight(161),
+                    width: getScreenWidth(1),
+                    child: const EventsHorizontalView(),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: getProportionateScreenHeight(23.5),
@@ -94,9 +101,9 @@ class EventsHomePage extends StatelessWidget {
                   width: getProportionateScreenWidth(19),
                 ),
                 const Expanded(child: PodcastCategoriesTabs()),
-                SizedBox(
-                  width: getProportionateScreenWidth(19),
-                ),
+                // SizedBox(
+                //   width: getProportionateScreenWidth(19),
+                // ),
               ],
             ),
             SizedBox(

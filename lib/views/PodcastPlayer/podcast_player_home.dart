@@ -37,7 +37,7 @@ class _PodcastPlayerHomeState extends State<PodcastPlayerHome> {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            const BluredImg(),
+             const BluredImg(asset: podBoxImgAsset,),
             SingleChildScrollView(
               padding: EdgeInsets.symmetric(
                   horizontal: getProportionateScreenWidth(19)),

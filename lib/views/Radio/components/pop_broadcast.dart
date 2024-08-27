@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:pod_mood/components/pod_box.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
+import 'package:pod_mood/views/Events/Components/banner_stack.dart';
 
 class PopularBroadcast extends StatelessWidget {
   const PopularBroadcast({super.key});
@@ -13,7 +14,7 @@ class PopularBroadcast extends StatelessWidget {
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(19)),
       children: [
-        const AdImgBanner(),
+        const BannerStack(),
         SizedBox(
           height: getProportionateScreenHeight(15),
         ),
@@ -43,7 +44,7 @@ class AdImgBanner extends StatelessWidget {
       children: [
         SizedBox(
           height: getProportionateScreenHeight(89),
-          width: getProportionateScreenWidth(337),
+          width: getProportionateScreenWidth(1),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(5),
             child: Image.asset(podBannerAsset),

@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:pod_mood/components/pod_box.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
+import 'package:pod_mood/views/Events/Components/banner_stack.dart';
 
 class RadioGenre extends StatelessWidget {
   const RadioGenre({super.key});
@@ -13,7 +14,7 @@ class RadioGenre extends StatelessWidget {
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(19)),
       children: [
-        const AdImgBanner(),
+        const BannerStack(),
         SizedBox(
           height: getProportionateScreenHeight(15),
         ),

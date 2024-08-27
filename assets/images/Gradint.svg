@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="801" height="681" viewBox="0 0 801 681"><defs><linearGradient id="a" x1="0.5" x2="0.5" y2="0.916" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#0a0a0e"/><stop offset="1" stop-color="#22222f" stop-opacity="0"/></linearGradient></defs><g transform="translate(224 89)"><circle cx="84.5" cy="84.5" r="84.5" transform="translate(258 91)" fill="#f21e76" opacity="0.51"/><circle cx="84.5" cy="84.5" r="84.5" transform="translate(-74 242)" fill="#fbbc04" opacity="0.19"/><circle cx="70" cy="70" r="70" transform="translate(167 61)" fill="#0083fd" opacity="0.19"/><circle cx="70" cy="70" r="70" transform="translate(33 156)" fill="#34a853" opacity="0.19"/><ellipse cx="324" cy="71" rx="324" ry="71" transform="translate(-136 450)" fill="url(#a)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="556" height="280" viewBox="0 0 556 280">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.61" gradientTransform="translate(0 0)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#171725" stop-opacity="0"/>
+      <stop offset="1" stop-color="#171725"/>
+    </radialGradient>
+  </defs>
+  <rect id="gradint" width="556" height="280" opacity="0.56" fill="url(#radial-gradient)"/>
+</svg>

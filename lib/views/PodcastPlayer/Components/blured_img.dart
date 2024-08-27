@@ -3,8 +3,8 @@ import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
 
 class BluredImg extends StatelessWidget {
-  const BluredImg({super.key});
-
+  const BluredImg({super.key, required this.asset});
+final String asset;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -12,7 +12,7 @@ class BluredImg extends StatelessWidget {
       children: <Widget>[
         Image(
           fit: BoxFit.cover,
-          image: const AssetImage(podBoxImgAsset),
+          image:  AssetImage(asset),
           height: getScreenHeight(3),
           width: getScreenWidth(1),
         ),
@@ -41,16 +41,16 @@ class BluredImg extends StatelessWidget {
               ],
               colors: [
                 Colors.transparent,
-                bottomScaffoldColor.withOpacity(0.1),
-                bottomScaffoldColor.withOpacity(0.2),
-                bottomScaffoldColor.withOpacity(0.3),
-                bottomScaffoldColor.withOpacity(0.4),
-                bottomScaffoldColor.withOpacity(0.5),
-                bottomScaffoldColor.withOpacity(0.6),
-                bottomScaffoldColor.withOpacity(0.7),
-                bottomScaffoldColor.withOpacity(0.8),
-                bottomScaffoldColor.withOpacity(0.9),
-                bottomScaffoldColor,
+                topScaffoldColor.withOpacity(0.1),
+                topScaffoldColor.withOpacity(0.2),
+                topScaffoldColor.withOpacity(0.3),
+                topScaffoldColor.withOpacity(0.4),
+                topScaffoldColor.withOpacity(0.5),
+                topScaffoldColor.withOpacity(0.6),
+                topScaffoldColor.withOpacity(0.7),
+                topScaffoldColor.withOpacity(0.8),
+                topScaffoldColor.withOpacity(0.9),
+                topScaffoldColor,
               ],
             ),
           ),
