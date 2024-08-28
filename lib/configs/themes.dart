@@ -90,7 +90,7 @@ final theTheme =  ThemeData(
       color: white,
       fontFamily: circularStdFamily,
       fontSize: 22,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.normal,
       // height: 20,
     ),
     displayLarge: TextStyle(
@@ -104,14 +104,14 @@ final theTheme =  ThemeData(
       color: white,
       fontFamily: hKGroteskFamily,
       fontSize: 14,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.bold,
       // height: 14,
     ),
     displaySmall: TextStyle(
       color: white,
       fontFamily: hKGroteskFamily,
       fontSize: 12,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.bold,
       // height: 12,
     ),
     labelLarge: TextStyle(
