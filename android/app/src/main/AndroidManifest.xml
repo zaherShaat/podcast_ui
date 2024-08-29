@@ -3,6 +3,8 @@
         android:label="pod_mood"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA-y_2FktvjCRexy6teVrkdFppCSc9AdiI"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
