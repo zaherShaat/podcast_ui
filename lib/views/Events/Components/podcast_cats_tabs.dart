@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:pod_mood/components/event_widgets.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
 import 'package:pod_mood/views/Home/components/pop_pods_image.dart';
 
 class PodcastCategoriesTabs extends StatefulWidget {
-  const PodcastCategoriesTabs({super.key});
-
+  const PodcastCategoriesTabs(
+      {super.key, this.spaceful = false, this.viewsList});
+  final bool spaceful;
+  final List<Widget>? viewsList;
   @override
   State<PodcastCategoriesTabs> createState() => _PodcastCategoriesTabsState();
 }
@@ -60,6 +63,7 @@ class _PodcastCategoriesTabsState extends State<PodcastCategoriesTabs> {
             ),
           ),
         ),
+        widget.spaceful ? const Spacer() : Container(),
         SizedBox(
           height: getProportionateScreenHeight(158),
           width: getScreenWidth(1),
@@ -67,7 +71,7 @@ class _PodcastCategoriesTabsState extends State<PodcastCategoriesTabs> {
             scrollDirection: Axis.horizontal,
             physics: const NeverScrollableScrollPhysics(),
             controller: _pagesC,
-            children: _views,
+            children: widget.viewsList ?? _views,
           ),
         ),
       ],
@@ -110,6 +114,46 @@ class EventsHorizontalView extends StatelessWidget {
         SizedBox(
           width: getProportionateScreenWidth(15),
         ),
+      ],
+    );
+  }
+}
+
+class EventStackedHorizontalView extends StatelessWidget {
+  const EventStackedHorizontalView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      children: [
+        // SizedBox(
+        //   width: getProportionateScreenWidth(19),
+        // ),
+        const EventStackedBox(),
+        SizedBox(
+          width: getProportionateScreenWidth(15),
+        ),
+        const EventStackedBox(),
+        SizedBox(
+          width: getProportionateScreenWidth(15),
+        ),
+        const EventStackedBox(),
+        SizedBox(
+          width: getProportionateScreenWidth(15),
+        ),
+        const EventStackedBox(),
+        SizedBox(
+          width: getProportionateScreenWidth(15),
+        ),
+        const EventStackedBox(),
+        SizedBox(
+          width: getProportionateScreenWidth(15),
+        ),
+        const EventStackedBox(),
+        // SizedBox(
+        //   width: getProportionateScreenWidth(15),
+        // ),
       ],
     );
   }

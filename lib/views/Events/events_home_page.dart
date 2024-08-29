@@ -5,6 +5,7 @@ import 'package:pod_mood/configs/constants.dart';
 import 'package:pod_mood/views/Events/Components/banner_stack.dart';
 import 'package:pod_mood/views/Events/Components/podcast_cats_tabs.dart';
 import 'package:pod_mood/views/Events/event_details.dart';
+import 'package:pod_mood/views/Events/event_map_page.dart';
 
 class EventsHomePage extends StatelessWidget {
   const EventsHomePage({super.key});
@@ -19,7 +20,14 @@ class EventsHomePage extends StatelessWidget {
         title: const Text("Events"),
         actions: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const EventsMapPage(),
+                ),
+              );
+            },
             child: const Icon(
               Icons.map_outlined,
               color: iconColor,

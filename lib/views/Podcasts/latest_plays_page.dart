@@ -122,8 +122,11 @@ class LatestPlaysPage extends StatelessWidget {
             ),
             Expanded(
               child: ListView.separated(
-                padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(19)),
+                padding: EdgeInsets.only(
+                  left: getProportionateScreenWidth(19),
+                  right: getProportionateScreenWidth(19),
+                  bottom: getProportionateScreenHeight(8),
+                ),
                 itemBuilder: (context, index) {
                   return PodCard(
                     onPressed: () {},

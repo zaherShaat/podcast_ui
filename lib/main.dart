@@ -22,7 +22,7 @@ class _MainAppState extends State<MainApp> {
     sizeConfig.init(context);
     return MaterialApp(
       theme: theTheme,
-      home: const LatestPlaysPage(),
+      home: const NavigationPage(),
     );
   }
 }
