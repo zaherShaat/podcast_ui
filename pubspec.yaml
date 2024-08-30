@@ -11,8 +11,8 @@ dependencies:
     flutter_svg: ^2.0.10+1
     carousel_slider: ^5.0.0
     audioplayers: ^6.0.0
-    flutter_map: ^7.0.2
-    latlong2: ^0.9.1
+    google_maps_flutter: ^2.6.1
+    flutter_polyline_points: ^2.1.0
 
 dev_dependencies:
     flutter_test:

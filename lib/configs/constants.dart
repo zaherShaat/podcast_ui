@@ -8,6 +8,7 @@ const String eventsBannerAsset = "assets/images/event_details.png";
 const String mailIconAsset = "assets/images/mail-icon.svg";
 const String lockIconAsset = "assets/images/lock-icon.svg";
 const String eventBackAsset = "assets/images/event_back_img.png";
+const String profileImgAsset = "assets/images/Profile.png";
 const String sliderImageAsset = "assets/images/Slider-image.png";
 const String radioIconAsset = "assets/images/Icon-Radio.svg";
 const String podcastsIconAsset = "assets/images/Icon-Podcasts.svg";
