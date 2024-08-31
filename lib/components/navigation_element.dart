@@ -179,6 +179,7 @@ class RadioIcon extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: SvgPicture.asset(
         asset,
+        // ignore: deprecated_member_use
         color: color,
       ),
     );

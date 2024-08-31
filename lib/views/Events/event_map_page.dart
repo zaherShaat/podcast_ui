@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:pod_mood/components/event_widgets.dart';
 import 'package:pod_mood/components/public_gardient_body.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/views/Events/Components/events_map.dart';
@@ -21,7 +18,7 @@ class _EventsMapPageState extends State<EventsMapPage> {
       body: GradientBackground(
         child: Stack(
           children: [
-            EventsMap(),
+            const EventsMap(),
             Column(
               children: [
                 SizedBox(

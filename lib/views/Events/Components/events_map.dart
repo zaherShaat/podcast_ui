@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -12,8 +11,8 @@ class EventsMap extends StatefulWidget {
 }
 
 class _EventsMapState extends State<EventsMap> {
-  final Completer<GoogleMapController> _controller =
-      Completer<GoogleMapController>();
+  // final Completer<GoogleMapController> _controller =
+  //     Completer<GoogleMapController>();
   static const CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799,
       target: LatLng(37.77483, -122.41942),
@@ -21,8 +20,8 @@ class _EventsMapState extends State<EventsMap> {
       zoom: 19.151926040649414);
 
   GoogleMapController? mapController;
-  final LatLng _origin = LatLng(37.77483, -122.41942);
-  final LatLng _destination = LatLng(37.43296265331129, -122.08832357078792);
+  final LatLng _origin = const LatLng(37.77483, -122.41942);
+  final LatLng _destination = const LatLng(37.43296265331129, -122.08832357078792);
   List<LatLng> polylineCoordinates = [];
   late PolylinePoints polylinePoints;
 
@@ -60,7 +59,7 @@ class _EventsMapState extends State<EventsMap> {
     return GoogleMap(
       zoomControlsEnabled: true,
       zoomGesturesEnabled: true,
-      minMaxZoomPreference: MinMaxZoomPreference(2, 12),
+      minMaxZoomPreference: const MinMaxZoomPreference(2, 12),
       compassEnabled: true,
       mapToolbarEnabled: false,
       onTap: (coordinate) {
@@ -77,7 +76,7 @@ class _EventsMapState extends State<EventsMap> {
       myLocationButtonEnabled: true,
       polylines: {
         Polyline(
-          polylineId: PolylineId('route1'),
+          polylineId: const PolylineId('route1'),
           points: polylineCoordinates,
           color: Colors.blue,
           width: 6,
@@ -85,11 +84,11 @@ class _EventsMapState extends State<EventsMap> {
       },
       markers: {
         Marker(
-          markerId: MarkerId('origin'),
+          markerId: const MarkerId('origin'),
           position: _origin,
         ),
         Marker(
-          markerId: MarkerId('destination'),
+          markerId: const MarkerId('destination'),
           position: _destination,
         ),
       },

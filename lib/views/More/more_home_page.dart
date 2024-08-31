@@ -3,6 +3,8 @@ import 'package:pod_mood/components/public_gardient_body.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
 import 'package:pod_mood/views/More/Components/more_navigation_card.dart';
+import 'package:pod_mood/views/More/connect_device_page.dart';
+import 'package:pod_mood/views/More/playback_page.dart';
 
 class MoreHomePage extends StatelessWidget {
   const MoreHomePage({super.key});
@@ -12,7 +14,7 @@ class MoreHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
-          onTap: () {},
+          onTap: () => Navigator.pop(context),
           onDoubleTap: () {},
           canRequestFocus: false,
           enableFeedback: false,
@@ -42,14 +44,24 @@ class MoreHomePage extends StatelessWidget {
             ),
             MoreNavigationCard(
               label: "Playback",
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const PlaybackPage(),
+                ),
+              ),
             ),
             SizedBox(
               height: getProportionateScreenHeight(11),
             ),
             MoreNavigationCard(
               label: "Connect to device",
-              onTap: () {},
+              onTap:() => Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const ConnectToDevicePage(),
+                ),
+              ),
             ),
             SizedBox(
               height: getProportionateScreenHeight(11),

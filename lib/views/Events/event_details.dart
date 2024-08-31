@@ -24,7 +24,7 @@ class EventDetailsPage extends StatelessWidget {
                 SizedBox(
                   width: getProportionateScreenWidth(19),
                 ),
-                Text(
+                const Text(
                   "Cubicle Wars",
                   style: TextStyle(fontSize: 20),
                 ),
