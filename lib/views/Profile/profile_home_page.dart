@@ -4,6 +4,7 @@ import 'package:pod_mood/components/public_gardient_body.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
 import 'package:pod_mood/views/Events/Components/podcast_cats_tabs.dart';
+import 'package:pod_mood/views/More/more_home_page.dart';
 import 'package:pod_mood/views/Profile/Components/personal_circle_picture.dart';
 
 class ProfileHomePage extends StatelessWidget {
@@ -13,17 +14,22 @@ class ProfileHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
         leadingWidth: 0,
         actions: [
-          Icon(
-            Icons.more_vert,
-            color: iconColor,
+          InkWell( 
+            onTap: () => Navigator.of(context).push( MaterialPageRoute<void>(
+      builder: (BuildContext context) => const MoreHomePage(),
+    ),),
+            child: const Icon(
+              Icons.more_vert,
+              color: iconColor,
+            ),
           ),
           SizedBox(
             width: getProportionateScreenWidth(29),
           ),
-          Icon(
+          const Icon(
             Icons.search,
             color: iconColor,
           ),
@@ -36,10 +42,10 @@ class ProfileHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: kToolbarHeight,
             ),
-            PersonalCircledPicture(
+            const PersonalCircledPicture(
               email: "gailforcewind2009@email.com",
               pictureAsset: profileIconAsset,
               username: "Gail Forcewind",
@@ -52,7 +58,7 @@ class ProfileHomePage extends StatelessWidget {
                 SizedBox(
                   width: getProportionateScreenWidth(19),
                 ),
-                Text(
+                const Text(
                   "Favourite Podcasts",
                   textAlign: TextAlign.start,
                 ),
@@ -69,7 +75,7 @@ class ProfileHomePage extends StatelessWidget {
                 Expanded(
                   child: SizedBox(
                       height: getProportionateScreenHeight(165),
-                      child: EventsHorizontalView()),
+                      child: const EventsHorizontalView()),
                 ),
               ],
             ),
@@ -81,7 +87,7 @@ class ProfileHomePage extends StatelessWidget {
                 SizedBox(
                   width: getProportionateScreenWidth(19),
                 ),
-                Text(
+                const Text(
                   "Favourite Radio Stations",
                   textAlign: TextAlign.start,
                 ),

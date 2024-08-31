@@ -25,7 +25,7 @@ class PersonalCircledPicture extends StatelessWidget {
               color: deepBinky,
               width: 5,
             ),
-            image: DecorationImage(
+            image: const DecorationImage(
               image: AssetImage(
                 profileImgAsset,
               ),
