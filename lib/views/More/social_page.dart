@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:pod_mood/components/main_switch_btn.dart';
 import 'package:pod_mood/components/public_gardient_body.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
+import 'package:pod_mood/views/More/Components/device_card.dart';
 import 'package:pod_mood/views/More/Components/more_navigation_card.dart';
-import 'package:pod_mood/views/More/connect_device_page.dart';
-import 'package:pod_mood/views/More/playback_page.dart';
-import 'package:pod_mood/views/More/social_page.dart';
 
-class MoreHomePage extends StatelessWidget {
-  const MoreHomePage({super.key});
+class SocialPage extends StatefulWidget {
+  const SocialPage({super.key});
+
+  @override
+  State<SocialPage> createState() => _SocialPageState();
+}
+
+class _SocialPageState extends State<SocialPage> {
+  bool _privateSessionVal = true;
+  bool _listeningActivityVal = false;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +31,7 @@ class MoreHomePage extends StatelessWidget {
             color: binky,
           ),
         ),
-        title: const Text("More"),
+        title: const Text("Social"),
         titleSpacing: 0,
         leadingWidth: getProportionateScreenWidth(35),
         actions: [
@@ -39,60 +46,54 @@ class MoreHomePage extends StatelessWidget {
       ),
       body: GradientBackground(
         child: ListView(
-          children: <Widget>[
+          children: [
             SizedBox(
               height: getProportionateScreenHeight(25),
             ),
             MoreNavigationCard(
-              label: "Playback",
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const PlaybackPage(),
-                ),
+              label: "Private Session",
+              leadingWidget: MainSwitchBtn(
+                onChanged: (value) {
+                  setState(() {
+                    _privateSessionVal = value!;
+                  });
+                },
+                gettenVal: _privateSessionVal,
               ),
             ),
             SizedBox(
               height: getProportionateScreenHeight(11),
             ),
             MoreNavigationCard(
-              label: "Connect to device",
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      const ConnectToDevicePage(),
-                ),
+              label: "Listening Activity",
+              leadingWidget: MainSwitchBtn(
+                onChanged: (value) {
+                  setState(() {
+                    _listeningActivityVal = value!;
+                  });
+                },
+                gettenVal: _listeningActivityVal,
               ),
             ),
             SizedBox(
               height: getProportionateScreenHeight(11),
             ),
-            MoreNavigationCard(
-              label: "Social",
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const SocialPage(),
-                ),
-              ),
+            const DeviceCard(
+              cardColor: cardColor,
+              color: Colors.transparent,
+              asset: facebookLogo,
+              label: "Connect to Facebook",
+              iconColor: blue,
             ),
             SizedBox(
               height: getProportionateScreenHeight(11),
             ),
-            MoreNavigationCard(
-              label: "Music Quality",
-              onTap: () {},
-            ),
-            SizedBox(
-              height: getProportionateScreenHeight(11),
-            ),
-            MoreNavigationCard(
-              label: "About Us",
-              onTap: () {},
-            ),
-            SizedBox(
-              height: getProportionateScreenHeight(11),
+            const DeviceCard(
+              cardColor: cardColor,
+              color: Colors.transparent,
+              asset: googleLogo,
+              label: "Connect to Google",
+              // iconColor: blue,
             ),
           ],
         ),

@@ -8,14 +8,18 @@ class DeviceCard extends StatelessWidget {
       {super.key,
       required this.color,
       required this.asset,
-      required this.label});
+      required this.label,
+      this.cardColor,
+      this.iconColor});
   final Color color;
+  final Color? cardColor, iconColor;
+
   final String asset, label;
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      color: chly,
+      color: cardColor ?? chly,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(6),
       ),
@@ -33,6 +37,8 @@ class DeviceCard extends StatelessWidget {
               color: color,
               child: SvgPicture.asset(
                 asset,
+                // ignore: deprecated_member_use
+                color: iconColor,
               ),
             ),
             SizedBox(
