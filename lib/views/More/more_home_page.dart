@@ -4,6 +4,7 @@ import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
 import 'package:pod_mood/views/More/Components/more_navigation_card.dart';
 import 'package:pod_mood/views/More/connect_device_page.dart';
+import 'package:pod_mood/views/More/music_quality_page.dart';
 import 'package:pod_mood/views/More/playback_page.dart';
 import 'package:pod_mood/views/More/social_page.dart';
 
@@ -82,7 +83,12 @@ class MoreHomePage extends StatelessWidget {
             ),
             MoreNavigationCard(
               label: "Music Quality",
-              onTap: () {},
+                onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const MusicQualityPage(),
+                ),
+              ),
             ),
             SizedBox(
               height: getProportionateScreenHeight(11),

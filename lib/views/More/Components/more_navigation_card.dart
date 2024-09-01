@@ -4,12 +4,14 @@ import 'package:pod_mood/configs/constants.dart';
 
 class MoreNavigationCard extends StatelessWidget {
   final Widget? leadingWidget;
+  final Color? cardColor;
 
   const MoreNavigationCard(
       {super.key,
       required this.label,
-       this.onTap,
-       this.leadingWidget});
+      this.onTap,
+      this.leadingWidget,
+      this.cardColor});
   final String label;
   final void Function()? onTap;
   @override
@@ -19,6 +21,7 @@ class MoreNavigationCard extends StatelessWidget {
       highlightColor: Colors.white,
       onTap: onTap,
       child: Card(
+        color: cardColor ?? chly,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6),
