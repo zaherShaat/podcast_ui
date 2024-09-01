@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pod_mood/components/public_gardient_body.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/constants.dart';
+import 'package:pod_mood/views/More/terms_conditions_page.dart';
 
 class AboutUsPage extends StatelessWidget {
   const AboutUsPage({super.key});
@@ -20,7 +21,7 @@ class AboutUsPage extends StatelessWidget {
             color: binky,
           ),
         ),
-        title: const Text("Playback"),
+        title: const Text("Abot US"),
         titleSpacing: 0,
         leadingWidth: getProportionateScreenWidth(35),
         actions: [
@@ -47,8 +48,17 @@ class AboutUsPage extends StatelessWidget {
             SizedBox(
               height: getProportionateScreenHeight(8),
             ),
-            const TxtCard(
+            TxtCard(
               startLabel: "Terms & Conditions",
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        const TermsAndConditionsPage(),
+                  ),
+                );
+              },
             ),
             SizedBox(
               height: getProportionateScreenHeight(8),
@@ -79,39 +89,43 @@ class AboutUsPage extends StatelessWidget {
 }
 
 class TxtCard extends StatelessWidget {
-  const TxtCard({super.key, required this.startLabel, this.endLabel});
+  const TxtCard(
+      {super.key, required this.startLabel, this.endLabel, this.onTap});
   final String startLabel;
   final String? endLabel;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     final thisTheme = Theme.of(context);
 
-    return Card(
-      color: chly,
-      elevation: 0,
-      // margin: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(19)),
-      child: Padding(
-        padding:
-            EdgeInsets.symmetric(vertical: getProportionateScreenHeight(17)),
-        child: Row(
-          children: <Widget>[
-            SizedBox(
-              width: getProportionateScreenWidth(24),
-            ),
-            Text(startLabel),
-            const Spacer(),
-            endLabel != null
-                ? Text(
-                    "Automatic",
-                    style:
-                        thisTheme.textTheme.labelSmall!.copyWith(fontSize: 11),
-                  )
-                : Container(),
-            SizedBox(
-              width: getProportionateScreenWidth(12),
-            ),
-          ],
+    return InkWell(
+      onTap: onTap,
+      child: Card(
+        color: chly,
+        elevation: 0,
+        // margin: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(19)),
+        child: Padding(
+          padding:
+              EdgeInsets.symmetric(vertical: getProportionateScreenHeight(17)),
+          child: Row(
+            children: <Widget>[
+              SizedBox(
+                width: getProportionateScreenWidth(24),
+              ),
+              Text(startLabel),
+              const Spacer(),
+              endLabel != null
+                  ? Text(
+                      "Automatic",
+                      style: thisTheme.textTheme.labelSmall!
+                          .copyWith(fontSize: 11),
+                    )
+                  : Container(),
+              SizedBox(
+                width: getProportionateScreenWidth(12),
+              ),
+            ],
+          ),
         ),
       ),
     );
