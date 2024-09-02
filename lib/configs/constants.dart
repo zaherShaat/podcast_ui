@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const String circularStdFamily = "CircularStd";
 const String hKGroteskFamily = "HKGrotesk";
+//////////////////////////////
 const String podBoxImgAsset = "assets/images/jordan_pod.png";
 const String podBannerAsset = "assets/images/Banner.png";
 const String eventsBannerAsset = "assets/images/event_details.png";
@@ -23,7 +24,7 @@ const String profileIconAsset = "assets/images/Icon-Profile.svg";
 const String homeIconAsset = "assets/images/Icon feather-home.svg";
 const String logoAsset = "assets/images/Logo.svg";
 const String facebookLogo = "assets/images/facebook-logo.svg";
-const String googleLogo = "assets/images/Google Logo.svg.svg";
+const String googleLogo = "assets/images/Google Logo.svg";
 const String tutorialElementsAsset = "assets/images/tutorial_elements.svg";
 const String tutorialElementsPngAsset = "assets/images/tutorial_elements.png";
 const String radioMeterAsset = "assets/images/Meter.svg";

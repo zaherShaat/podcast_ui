@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pod_mood/configs/SizeConfig.dart';
 import 'package:pod_mood/configs/themes.dart';
-import 'package:pod_mood/views/Radio/radio_broadcast.dart';
+import 'package:pod_mood/views/Splash/splash_home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -20,8 +20,9 @@ class _MainAppState extends State<MainApp> {
     SizeConfig sizeConfig = SizeConfig();
     sizeConfig.init(context);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: theTheme,
-      home: const RadioBroadcast(),
+      home: const SplashHome(),
     );
   }
 }
