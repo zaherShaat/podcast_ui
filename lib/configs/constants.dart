@@ -26,9 +26,13 @@ const String facebookLogo = "assets/images/facebook-logo.svg";
 const String googleLogo = "assets/images/Google Logo.svg.svg";
 const String tutorialElementsAsset = "assets/images/tutorial_elements.svg";
 const String tutorialElementsPngAsset = "assets/images/tutorial_elements.png";
+const String radioMeterAsset = "assets/images/Meter.svg";
 const String radioImgAsset = "assets/images/radioImg.svg";
 const String musicElementsAsset = "assets/images/music_elements.svg";
 const String podCardImg = "assets/images/card-image.png";
+const String waveBroadcastAsset = "assets/images/wave.svg";
+const String broadcastBoxImgAsset = "assets/images/broadcast_img.png";
+
 ///////////////////////////////////////////////////////////////////////////////////
 const LinearGradient scaffoldGradient = LinearGradient(
   colors: [topScaffoldColor, bottomScaffoldColor],
